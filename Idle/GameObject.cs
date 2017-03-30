@@ -6,7 +6,12 @@ using System.Threading.Tasks;
 
 namespace Idle
 {
-    public class GameObject
+    public abstract class GameObject
     {
+        
+        
+        public abstract void Update();
+
+        public abstract void Draw();
     }
 }

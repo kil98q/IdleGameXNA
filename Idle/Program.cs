@@ -11,11 +11,11 @@ namespace Idle
         /// <summary>
         /// The main entry point for the application.
         /// </summary>
+        static public Game1 game = new Game1();
         [STAThread]
         static void Main()
-        {
-            using (var game = new Game1())
-                game.Run();
+        {   
+            game.Run();
         }
     }
 #endif

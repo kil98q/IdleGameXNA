@@ -9,7 +9,7 @@ using Microsoft.Xna.Framework.Input;
 
 namespace Idle
 {
-    class Grid2DViewer
+    class Grid2DViewer : GameObject
     {
         public int PosX;
         public int PosY;
@@ -25,11 +25,11 @@ namespace Idle
             this.Grid = Grid;
             this._spritebatch = Spritebatch;
         }
-        public void Draw()
+        public override void Draw()
         {
-            DrawUtils.DrawRectangle(_spritebatch,10,10,100,100,);
+            DrawUtils.DrawRectangle(_spritebatch,10,10,100,100,DrawUtils.Texture2DGenerator(90,90,Color.Red));
         }
-        public void Update()
+        public override void Update()
         {
 
         }

@@ -38,7 +38,12 @@
     <ApplicationIcon>Icon.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="Component.cs" />
+    <Compile Include="DrawUtils.cs" />
     <Compile Include="Game1.cs" />
+    <Compile Include="GameObject.cs" />
+    <Compile Include="Grid2D.cs" />
+    <Compile Include="Grid2DViewer.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

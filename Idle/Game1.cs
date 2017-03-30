@@ -1,6 +1,7 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
+using System;
 
 namespace Idle
 {
@@ -8,6 +9,10 @@ namespace Idle
     {
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
+        public Game game;
+
+        public delegate void UpdateEventHandler(object source, EventArgs args);
+        public event UpdateEventHandler UpdateObjects;
 
         public Game1()
         {
@@ -17,7 +22,7 @@ namespace Idle
 
         protected override void Initialize()
         {
-            
+            game = this;
             base.Initialize();
         }
 
@@ -37,7 +42,7 @@ namespace Idle
             if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Escape))
                 Exit();
 
-
+            OnUpdate();
             base.Update(gameTime);
         }
 
@@ -46,6 +51,11 @@ namespace Idle
             GraphicsDevice.Clear(Color.CornflowerBlue);
 
             base.Draw(gameTime);
+        }
+        protected virtual void OnUpdate()
+        {
+            if (UpdateObjects != null)
+                UpdateObjects(this, EventArgs.Empty);
         }
     }
 }
